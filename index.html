@@ -4,47 +4,15 @@
   <meta charset="UTF-8" />
   <title>Login Seite</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
     .login-container {
-      max-width: 320px;
-      background: white;
-      padding: 20px 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: center;
+      max-width: 300px;
+      margin: 40px auto;
+      font-family: Arial, sans-serif;
     }
     label, input, button {
       display: block;
       width: 100%;
-      margin: 10px 0 5px;
-    }
-    button {
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    #message {
-      margin-top: 20px;
-      color: green;
-      font-weight: bold;
-    }
-    img {
-      margin-top: 15px;
-      max-width: 100%;
-      height: auto;
+      margin: 8px 0;
     }
   </style>
 </head>
@@ -60,7 +28,7 @@
 
       <button type="submit">Einloggen</button>
     </form>
-    <div id="message"></div>
+    <div id="message" style="margin-top: 20px; color: green; font-weight: bold;"></div>
   </div>
 
   <script>
@@ -69,22 +37,15 @@
 
     form.addEventListener('submit', function(event) {
       event.preventDefault();
-      const username = document.getElementById('username').value.trim();
 
-      if (!username) {
-        messageDiv.textContent = 'Bitte Benutzernamen eingeben.';
-        return;
-      }
+      const username = document.getElementById('username').value;
 
-      // Formular ausblenden
-      form.style.display = 'none';
-
-      // Nachricht und GIF anzeigen
       messageDiv.innerHTML = `
         Hallo ${username}, du wurdest erfolgreich gehackt!<br>
-        <img src="images/polish-cow.gif" alt="Polish Cow GIF" />
-        <br><em>Hinweis: Dies ist nur ein Test.</em>
+        <img src="https://media1.tenor.com/m/_gfqfXAP08IAAAAC/polish-cow-cow.gif" alt="Polish Cow GIF" style="width:200px; margin-top:15px;" />
       `;
+
+      form.style.display = 'none';
     });
   </script>
 </body>
