@@ -8,7 +8,7 @@
 <body>
   <div class="login-container">
     <h2>Login</h2>
-    <form action="index.html" method="post">
+    <form id="loginForm" action="index.html" method="post">
       <label for="username">Benutzername:</label>
       <input type="text" id="username" name="username" required>
 
@@ -17,6 +17,31 @@
 
       <button type="submit">Einloggen</button>
     </form>
+    <!-- Hier wird später die Nachricht angezeigt -->
+    <div id="message" style="margin-top: 20px; color: green; font-weight: bold;">messageDiv.innerHTML = `Hallo ${username}, du bist jetzt eingeloggt!<br>
+<img src="https://media.giphy.com/media/l0HlSNOxJB956qwfK/giphy.gif" alt="Test läuft" style="width:150px; margin-top:10px;"><br>
+Hinweis: Dies ist nur ein Test und kein echtes Login.`;
+</div>
   </div>
+
+  <script>
+    // JavaScript, um das Formular abzufangen
+    const form = document.getElementById('loginForm');
+    const messageDiv = document.getElementById('message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Verhindert das Abschicken des Formulars
+
+      // Hier kannst du die Werte auslesen, falls du möchtest:
+      const username = document.getElementById('username').value;
+      // const password = document.getElementById('password').value; // Nicht unbedingt nötig
+
+      // Beispieltext anzeigen
+      messageDiv.textContent = `Hallo ${username}, du bist jetzt eingeloggt!`;
+
+      // Optional: Formular verstecken, damit man nicht nochmal senden kann
+      form.style.display = '';
+    });
+  </script>
 </body>
 </html>
