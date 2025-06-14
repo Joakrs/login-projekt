@@ -29,14 +29,15 @@
     form.addEventListener('submit', function(event) {
       event.preventDefault(); // Verhindert das Abschicken des Formulars
 
-      // Hier kannst du die Werte auslesen, falls du möchtest:
       const username = document.getElementById('username').value;
-      // const password = document.getElementById('password').value; // Nicht unbedingt nötig
 
-      // Beispieltext anzeigen
-      messageDiv.textContent = `Hallo ${username}, du wurdest erfolgreich gehackt!`;
+      // Nachricht + GIF anzeigen
+      messageDiv.innerHTML = `
+        Hallo ${username}, du wurdest erfolgreich gehackt!<br>
+        <img src="https://media1.tenor.com/m/_gfqfXAP08IAAAAC/polish-cow-cow.gif" alt="Polish Cow GIF" style="width:200px; margin-top:15px;">
+      `;
 
-      // Optional: Formular verstecken, damit man nicht nochmal senden kann
+      // Formular verstecken
       form.style.display = 'none';
     });
   </script>
